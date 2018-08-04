@@ -8,12 +8,14 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 10004
+        versionName "1.0.0.4"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
+
 
     buildTypes {
         release {
@@ -22,8 +24,15 @@ android {
         }
     }
 
-}
 
+    android.libraryVariants.all { variant ->
+        variant.outputs.all {
+            def fileName = "utils-release_${defaultConfig.versionName}"+".aar"
+            outputFileName = fileName
+        }
+    }
+
+}
 
 
 dependencies {
