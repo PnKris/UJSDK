@@ -45,7 +45,7 @@ public class PostRequest extends BaseRequest<PostBuilder> {
         }
 
         if (TextUtils.isEmpty(builder.getUrl())) {
-            throw new IllegalArgumentException("Url is must not null");
+            throw new NullPointerException("url is null");
         }
 
         requestBuilder.url(builder.getUrl());

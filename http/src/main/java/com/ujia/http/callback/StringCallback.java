@@ -4,6 +4,7 @@ import com.ujia.http.HttpError;
 import com.ujia.http.convert.Converter;
 import com.ujia.http.convert.ITransfer;
 
+import java.lang.ref.WeakReference;
 import java.nio.charset.Charset;
 
 public abstract class StringCallback implements ICallback {
@@ -47,6 +48,8 @@ public abstract class StringCallback implements ICallback {
                 }
             }
         } else {
+
+
             onResult(response);
         }
     }

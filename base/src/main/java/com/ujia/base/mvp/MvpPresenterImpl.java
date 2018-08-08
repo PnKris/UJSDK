@@ -9,7 +9,6 @@ public class MvpPresenterImpl<V extends MvpView> implements MvpPresenter {
 
     public MvpPresenterImpl(V view) {
         mViewRef = new WeakReference<>(view);
-//        mViewRef.get().setPresenter(this);
     }
 
     protected boolean isViewActive() {

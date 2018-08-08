@@ -1,5 +1,7 @@
 package com.ujia.rxtask;
 
+import android.os.Looper;
+
 public abstract class Task<T> implements Runnable {
     Callback target;
 
@@ -8,11 +10,15 @@ public abstract class Task<T> implements Runnable {
     @Override
     final public void run() {
         final T t = doBackground();
-        MainHandlerUtil.post(new Runnable() {
-            @Override
-            public void run() {
-                target.onResult(t);
-            }
-        });
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            target.onResult(t);
+        } else {
+            MainHandlerUtil.post(new Runnable() {
+                @Override
+                public void run() {
+                    target.onResult(t);
+                }
+            });
+        }
     }
 }
