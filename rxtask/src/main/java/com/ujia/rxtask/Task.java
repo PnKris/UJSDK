@@ -13,7 +13,7 @@ public abstract class Task<T> implements Runnable {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             target.onResult(t);
         } else {
-            MainHandlerUtil.post(new Runnable() {
+            TaskHandler.post(new Runnable() {
                 @Override
                 public void run() {
                     target.onResult(t);
