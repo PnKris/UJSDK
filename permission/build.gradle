@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 10000
+        versionName "1.0.0.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -19,6 +19,32 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+//    android.libraryVariants.all { variant ->
+//        variant.outputs.all {
+//            def fileName = "permission-${defaultConfig.versionName}"+".aar"
+//            outputFileName = fileName
+//        }
+//    }
+
+    android.libraryVariants.all { variant ->
+        if (variant.buildType.name == 'release') {
+            variant.assemble.doLast {
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.aar')) {
+                        def fileName = "${project.name}-${defaultConfig.versionName}"
+                        def outputPath = "../aars";
+                        copy {
+                            from outputFile
+                            into outputPath
+                            rename { fileName + ".aar" }
+                        }
+                    }
+                }
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-package com.ujia.rxplugin;
+package com.ujia.imageloader;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.ujia.rxplugin.test", appContext.getPackageName());
+        assertEquals("com.ujia.imageloader.test", appContext.getPackageName());
     }
 }

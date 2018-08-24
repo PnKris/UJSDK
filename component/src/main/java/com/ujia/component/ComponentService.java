@@ -36,7 +36,4 @@ public class ComponentService {
     public void unregisterComponent(IComponent component) {
 
     }
-
-
-
 }

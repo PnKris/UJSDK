@@ -30,7 +30,6 @@ dependencies {
     implementation project(':http')
     implementation project(':utils')
     implementation project(':permission')
-
     implementation project(':rxtask')
 
 }

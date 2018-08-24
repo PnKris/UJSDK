@@ -8,14 +8,12 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 10005
-        versionName "1.0.0.5"
+        versionCode 10000
+        versionName "1.0.0.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
-
-
 
     buildTypes {
         release {
@@ -23,6 +21,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+//    android.libraryVariants.all { variant ->
+//        variant.outputs.all {
+//            def fileName = "imageloader-${defaultConfig.versionName}"+".aar"
+//            outputFileName = fileName
+//        }
+//    }
 
     android.libraryVariants.all { variant ->
         if (variant.buildType.name == 'release') {
@@ -43,16 +48,7 @@ android {
         }
     }
 
-
-//    android.libraryVariants.all { variant ->
-//        variant.outputs.all {
-//            def fileName = "utils-${defaultConfig.versionName}"+".aar"
-//            outputFileName = fileName
-//        }
-//    }
-
 }
-
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

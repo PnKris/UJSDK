@@ -1,4 +1,4 @@
-package com.ujia.rxplugin;
+package com.ujia.imageloader;
 
 import org.junit.Test;
 

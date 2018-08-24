@@ -1,1 +1,1 @@
-include ':app', ':base', ':http', ':permission', ':utils', ':thread', ':rxtask', ':Plugin', ':component'
+include ':app', ':base', ':http', ':permission', ':utils', ':rxtask', ':component', ':imageloader'
