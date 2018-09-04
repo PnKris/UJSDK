@@ -9,10 +9,10 @@ public abstract class ModelCallback<T> extends StringCallback {
     }
 
     @Override
-    protected void onConvert(String result) {
+    protected final void onResult(String result) {
         T model = converter.convertModel(result);
         onResult(model);
     }
 
-    protected abstract void onResult(T result);
+    public abstract void onResult(T result);
 }

@@ -14,5 +14,14 @@ public class RxTask {
         return rx.io(task);
     }
 
+    public static void post(Task task) {
+        Rx rx = new Rx.Builder().task(task).build();
+        rx.post();
+    }
+
+    public static void postDelay(Task task, long delay) {
+        Rx rx = new Rx.Builder().task(task).delay(delay).build();
+        rx.postDelay();
+    }
 
 }

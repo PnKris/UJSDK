@@ -13,6 +13,5 @@ public class ThreadPool {
 
     static {
         poolExecutor = new ThreadPoolExecutor(0, 2147483647, 60L, TimeUnit.SECONDS, new SynchronousQueue());
-
     }
 }

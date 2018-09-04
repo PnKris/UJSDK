@@ -4,7 +4,6 @@ import com.ujia.http.HttpError;
 import com.ujia.http.convert.Converter;
 import com.ujia.http.convert.ITransfer;
 
-import java.lang.ref.WeakReference;
 import java.nio.charset.Charset;
 
 public abstract class StringCallback implements ICallback {
@@ -26,7 +25,7 @@ public abstract class StringCallback implements ICallback {
 
     }
 
-    public void onResponse(byte[] bytes, Charset charset) {
+    public final void onResponse(byte[] bytes, Charset charset) {
         String response = "";
         if (charset != null) {
             response = new String(bytes, charset);
@@ -38,7 +37,7 @@ public abstract class StringCallback implements ICallback {
             transfer.convert(response);
             if (transfer.isSuccess()) {
                 String result = transfer.result();
-                onConvert(result);
+                onResult(result);
             } else {
                 HttpError err = transfer.error();
                 if (err != null) {
@@ -62,9 +61,6 @@ public abstract class StringCallback implements ICallback {
     @Override
     public void onError(int code, String msg) {
 
-    }
-
-    protected void onConvert(String result) {
     }
 
     protected abstract void onResult(String result);

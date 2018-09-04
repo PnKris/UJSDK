@@ -10,15 +10,17 @@ public abstract class Task<T> implements Runnable {
     @Override
     final public void run() {
         final T t = doBackground();
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            target.onResult(t);
-        } else {
-            TaskHandler.post(new Runnable() {
-                @Override
-                public void run() {
-                    target.onResult(t);
-                }
-            });
+        if (target != null) {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                target.onResult(t);
+            } else {
+                TaskHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        target.onResult(t);
+                    }
+                });
+            }
         }
     }
 }

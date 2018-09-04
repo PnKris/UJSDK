@@ -1,1 +1,1 @@
-include ':app', ':base', ':http', ':permission', ':utils', ':rxtask', ':component', ':imageloader'
+include ':app', ':base', ':http', ':permission', ':utils', ':rxtask', ':component', ':imageloader', ':xrecyclerview'

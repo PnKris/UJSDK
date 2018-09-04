@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 10002
-        versionName "1.0.0.2"
+        versionCode 10000
+        versionName "1.0.0.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -21,13 +21,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-//    android.libraryVariants.all { variant ->
-//        variant.outputs.all {
-//            def fileName = "rxtask-${defaultConfig.versionName}"+".aar"
-//            outputFileName = fileName
-//        }
-//    }
 
 
     android.libraryVariants.all { variant ->
@@ -58,4 +51,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+
 }
