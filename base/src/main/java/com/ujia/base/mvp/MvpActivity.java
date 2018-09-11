@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.ujia.base.BaseActivity;
 
-public abstract class MvpActivity<P extends MvpPresenter> extends BaseActivity {
+public abstract class MvpActivity<P extends MvpPresenter> extends BaseActivity implements MvpView<P> {
     protected P mPresenter;
 
     @Override
@@ -16,4 +16,18 @@ public abstract class MvpActivity<P extends MvpPresenter> extends BaseActivity {
 
     protected abstract P initPresenter();
 
+    @Override
+    public boolean isActive() {
+        return !isFinishing();
+    }
+
+    @Override
+    public void onEmpty() {
+
+    }
+
+    @Override
+    public void onError() {
+
+    }
 }

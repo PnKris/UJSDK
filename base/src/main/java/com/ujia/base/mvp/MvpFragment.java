@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 
 import com.ujia.base.BaseFragment;
 
-public abstract class MvpFragment<P extends MvpPresenter> extends BaseFragment {
+public abstract class MvpFragment<P extends MvpPresenter> extends BaseFragment implements MvpView<P> {
     protected P mPresenter;
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -26,7 +27,22 @@ public abstract class MvpFragment<P extends MvpPresenter> extends BaseFragment {
 
     protected abstract P initPresenter();
 
-    protected void attachView(){
+    protected void attachView() {
+
+    }
+
+    @Override
+    public boolean isActive() {
+        return isDetached();
+    }
+
+    @Override
+    public void onEmpty() {
+
+    }
+
+    @Override
+    public void onError() {
 
     }
 }
