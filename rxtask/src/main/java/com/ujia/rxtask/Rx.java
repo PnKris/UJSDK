@@ -1,6 +1,8 @@
 package com.ujia.rxtask;
 
-public final class Rx {
+import com.ujia.rxtask.executor.ThreadPool;
+
+final class Rx {
 
     private Task task;
     private Callback target;
